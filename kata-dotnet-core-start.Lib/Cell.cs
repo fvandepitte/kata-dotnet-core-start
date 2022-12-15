@@ -4,10 +4,11 @@ public sealed record Cell
 {
     public bool IsEmpty => Owner is null;
 
-    private Player? Owner { get; set; }
+    public Player? Owner { get; set; }
 
     public void IsTakenBy(Player player)
     {
+        if (!IsEmpty) return;
         Owner = player;
     }
 }

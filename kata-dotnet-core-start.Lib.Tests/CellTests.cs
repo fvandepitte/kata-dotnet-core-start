@@ -22,5 +22,23 @@ public class CellTests
 
         // Assert
         cell.IsEmpty.Should().BeFalse();
+        cell.Owner.Should().Be(player);
+    }
+    
+    [Fact]
+    public void Given_CellIsTakenByPlayer_CellOwnerStaysThatPlayer()
+    {
+        // Arrange
+        var cell = new Cell();
+        var playerOne = Player.CreatePlayerOne();
+        cell.IsTakenBy(playerOne);
+
+        var playerTwo = Player.CreatePlayerTwo();
+
+        // Act
+        cell.IsTakenBy(playerTwo);
+        
+        // Assert
+        cell.Owner.Should().Be(playerOne);
     }
 }
