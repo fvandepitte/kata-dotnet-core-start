@@ -3,6 +3,10 @@
 public sealed record Player
 {
     public Symbol Symbol { get; init; }
+
+    public static Player CreatePlayerOne() => new() { Symbol = Symbol.X };
+
+    public static Player CreatePlayerTwo() => new() { Symbol = Symbol.O };
 }
 
 public enum Symbol
